@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ohio.exception.StudentNotFoundException;
 import com.ohio.model.RecordCounter;
 import com.ohio.model.Student;
 
@@ -36,7 +37,7 @@ public class StudentService {
 		return recordCounter;
 	}
 
-	public Student getStudent(int studentId) {
+	public Student getStudent(int studentId) throws StudentNotFoundException {
 		
 	Student matchingStudent= students.stream()
 			             .filter(stud->stud.getStudentId()==studentId)
@@ -47,10 +48,13 @@ public class StudentService {
 		for(Student s:students){
 			if(s.getStudentId()==studentId){
 				student=s;
-				return student;
-			} 
+				//return student;
+				break;
+			}
 		
 		}
+		if(student==null) throw new StudentNotFoundException("Student not found");
+		
 	  return student;
 	  
 			  

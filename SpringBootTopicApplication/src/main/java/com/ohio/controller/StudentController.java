@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ohio.exception.StudentNotFoundException;
 import com.ohio.model.RecordCounter;
 import com.ohio.model.Student;
 import com.ohio.service.StudentService;
@@ -33,7 +34,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/students/{studentId}")
-	public Student getStudent(@PathVariable("studentId")int id) {
+	public Student getStudent(@PathVariable("studentId")int id) throws StudentNotFoundException {
 		return studentService.getStudent(id);
 	}
 	
