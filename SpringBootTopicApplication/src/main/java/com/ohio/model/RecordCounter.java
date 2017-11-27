@@ -18,6 +18,7 @@ public class RecordCounter {
 	}
 	public void setNumResult(int numResult) {
 		this.numResult = numResult;
+		
 	}
 	
 	

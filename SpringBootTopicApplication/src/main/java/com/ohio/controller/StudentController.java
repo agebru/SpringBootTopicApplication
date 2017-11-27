@@ -42,6 +42,7 @@ public class StudentController {
 		 studentService.updateStudent(id,student);
 	}
 	
+	
 	@PostMapping("/students")
 	public void AddStudent(@RequestBody Student student){
 		studentService.addStudent(student);
